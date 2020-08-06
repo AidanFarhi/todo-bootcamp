@@ -1,7 +1,7 @@
 import React from 'react'
 import TodoForm from './TodoForm'
 
-class TodoList extends React.Component {
+class App extends React.Component {
 
   render() {
     return (
@@ -12,4 +12,4 @@ class TodoList extends React.Component {
   }
 }
 
-export default TodoList
+export default App
