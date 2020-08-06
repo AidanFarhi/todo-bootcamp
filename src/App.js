@@ -1,5 +1,6 @@
 import React from 'react'
 import TodoItem from './TodoItem'
+import TodoForm from './TodoForm'
 
 class TodoList extends React.Component {
   constructor () {
@@ -9,18 +10,15 @@ class TodoList extends React.Component {
       currentToDo: '',
       idCount: 0
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.addItem = this.addItem.bind(this)
-    this.delete = this.delete.bind(this)
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({
       currentToDo: event.target.value
     })
   }
 
-  addItem(event) {
+  addItem = (event) => {
     event.preventDefault()
     this.setState(prevState => {
       const updatedTodos = prevState.todos.concat(<TodoItem key={prevState.idCount} id={prevState.idCount} text={prevState.currentToDo} onClick={this.delete} />)
@@ -32,7 +30,7 @@ class TodoList extends React.Component {
     })
   }
 
-  delete(id) {
+  delete = (id) => {
     console.log(id)
     this.setState(prevState => {
       const updatedTds = prevState.todos.filter(td => td.props.id !== id) 
@@ -45,16 +43,16 @@ class TodoList extends React.Component {
   render() {
     return (
       <div className='container'>
-        <form onSubmit={this.addItem}>
+        {/* <form onSubmit={this.addItem}>
             <label htmlFor='taskName'>Task:</label>
             <input type='text' name='taskName' value={this.state.currentToDo} placeholder='Enter New Task' onChange={this.handleChange}/>
             <button type='submit'>Add Task</button>
-        </form>
+        </form> */}
+        <TodoForm onSubmit={this.addItem} value={this.state.currentToDo} onChange={this.handleChange}/>
         <div className='todo-list'>
           {this.state.todos}
         </div>
       </div>
-
     )
   }
 }
