@@ -10,6 +10,7 @@ class TodoList extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.addItem = this.addItem.bind(this)
+    this.delete = this.delete.bind(this)
   }
 
   handleChange(event) {
@@ -29,8 +30,20 @@ class TodoList extends React.Component {
     })
   }
 
+  delete(key) {
+    this.setState(prevState => {
+      const updatedTodos = prevState.todos.filter(td => td.key !== key) 
+      return {
+        todos: updatedTodos
+      }
+    })
+  }
+
   render() {
-    const todoListElements = this.state.todos.map(td => <TodoItem key={this.state.todos.indexOf(td)} text={td} />)
+    const todoListElements = this.state.todos.map(td => <TodoItem key={this.state.todos.indexOf(td)} 
+                                                                  text={td}
+                                                                  onClick={this.delete}
+                                                                  />)
     return (
       <div className='container'>
         <form onSubmit={this.addItem}>

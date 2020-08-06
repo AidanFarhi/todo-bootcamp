@@ -4,7 +4,7 @@ const TodoItem = (props) => {
     return (
         <div className='td-item'>
             <p>{props.text}</p>
-            <button >Delete</button>
+            <button onClick={() => props.onClick(props.key)}>Delete</button>
             <button >Update</button>
         </div>
     )
