@@ -6,7 +6,8 @@ class TodoList extends React.Component {
     super()
     this.state = {
       todos: [],
-      currentToDo: ''
+      currentToDo: '',
+      idCount: 0
     }
     this.handleChange = this.handleChange.bind(this)
     this.addItem = this.addItem.bind(this)
@@ -22,28 +23,26 @@ class TodoList extends React.Component {
   addItem(event) {
     event.preventDefault()
     this.setState(prevState => {
-      const updatedTodos = prevState.todos.concat(this.state.currentToDo)
+      const updatedTodos = prevState.todos.concat(<TodoItem key={prevState.idCount} id={prevState.idCount} text={prevState.currentToDo} onClick={this.delete} />)
       return {
         todos: updatedTodos,
-        currentToDo: ''
+        currentToDo: '',
+        idCount: prevState.idCount + 1
       }
     })
   }
 
-  delete(key) {
+  delete(id) {
+    console.log(id)
     this.setState(prevState => {
-      const updatedTodos = prevState.todos.filter(td => td.key !== key) 
+      const updatedTds = prevState.todos.filter(td => td.props.id !== id) 
       return {
-        todos: updatedTodos
+        todos: updatedTds
       }
     })
   }
 
   render() {
-    const todoListElements = this.state.todos.map(td => <TodoItem key={this.state.todos.indexOf(td)} 
-                                                                  text={td}
-                                                                  onClick={this.delete}
-                                                                  />)
     return (
       <div className='container'>
         <form onSubmit={this.addItem}>
@@ -52,7 +51,7 @@ class TodoList extends React.Component {
             <button type='submit'>Add Task</button>
         </form>
         <div className='todo-list'>
-          {todoListElements}
+          {this.state.todos}
         </div>
       </div>
 
