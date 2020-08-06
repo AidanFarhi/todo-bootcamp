@@ -1,4 +1,5 @@
 import React from 'react'
+import TodoItem from './TodoItem'
 
 class TodoList extends React.Component {
   constructor () {
@@ -29,7 +30,7 @@ class TodoList extends React.Component {
   }
 
   render() {
-    const todoListElements = this.state.todos.map(td => <li key={this.state.todos.indexOf(td)}>{td}</li>)
+    const todoListElements = this.state.todos.map(td => <TodoItem key={this.state.todos.indexOf(td)} text={td} />)
     return (
       <div className='container'>
         <form onSubmit={this.addItem}>
@@ -37,9 +38,9 @@ class TodoList extends React.Component {
             <input type='text' name='taskName' value={this.state.currentToDo} placeholder='Enter New Task' onChange={this.handleChange}/>
             <button type='submit'>Add Task</button>
         </form>
-        <ul>
+        <div className='todo-list'>
           {todoListElements}
-        </ul>
+        </div>
       </div>
 
     )
