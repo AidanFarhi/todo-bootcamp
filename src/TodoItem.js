@@ -7,7 +7,9 @@ class TodoItem extends React.Component{
             text: props.text,
             onClick: props.onClick,
             id: props.id,
-            updatedText: ''
+            updatedText: '',
+            editing: false,
+            editClicked: false,
         }
     }
 
@@ -24,22 +26,41 @@ class TodoItem extends React.Component{
             updatedText: event.target.value
         })
     }
+
+    edit = () => {
+        if (!this.state.editClicked) {
+            this.setState({
+                editClicked: true
+            })
+        } else {
+            this.setState({
+                editClicked: false
+            })
+        }
+    }
     
     render() {
         return (
             <div className='td-item' id={this.state.id}>
-                <h2>- {this.state.text}</h2>
-                <div className='update-form'>
-                    <form onSubmit={this.changeText}>
-                    <input type='text' 
-                        value={this.state.updatedText} 
-                        placeholder='Edit Task' 
-                        onChange={this.handleChange}/>
-                        <button className='btn' type='submit'>...</button>
-                        <button id='delete-btn' className='btn' 
-                                onClick={() => this.state.onClick(this.state.id)}>x</button>
-                    </form>
+                <div id='item-text-and-button'>
+                    <h2>- {this.state.text}</h2>
+                    <button id='dots' onClick={this.edit}><span id='button-dots'>...</span></button>
                 </div>
+                
+                {this.state.editClicked ?
+                    <div className='update-form'>
+                        <form onSubmit={this.changeText}>   
+                        <input type='text' 
+                            value={this.state.updatedText} 
+                            placeholder='Edit Task' 
+                            onChange={this.handleChange}/>
+                            <button className='btn' type='submit'>save change</button>
+                            <button id='delete-btn' className='btn' 
+                                    onClick={() => this.state.onClick(this.state.id)}>x</button>
+                        </form>
+                    </div>
+                : null}
+                
             </div>
         )
     }
