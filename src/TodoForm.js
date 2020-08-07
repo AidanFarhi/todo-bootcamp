@@ -8,7 +8,6 @@ class TodoForm extends React.Component {
             currentToDo: '',
             todos: [],
             idCount: 0,
-            updating: false,
         }
     }
 
@@ -39,13 +38,10 @@ class TodoForm extends React.Component {
         })
     }
 
-    // update = (id) => {
-    // }
-
     render() {
         return (
             <div className='todo-form'>
-                <form onSubmit={this.state.updating ?  this.update : this.addItem}>
+                <form onSubmit={this.addItem}>
                     <h3>- Task -</h3>
                     <input type='text' value={this.state.currentToDo} placeholder='Enter New Task' onChange={this.handleChange}/>
                     <button type='submit'>Add Task</button>
