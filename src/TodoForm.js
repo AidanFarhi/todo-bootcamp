@@ -20,7 +20,10 @@ class TodoForm extends React.Component {
     addItem = (event) => {
         event.preventDefault()
         this.setState(prevState => {
-        const updatedTodos = prevState.todos.concat(<TodoItem key={prevState.idCount} id={prevState.idCount} text={prevState.currentToDo} onClick={this.delete}/>)
+        const updatedTodos = prevState.todos.concat(<TodoItem key={prevState.idCount} 
+                                                              id={prevState.idCount} 
+                                                              text={prevState.currentToDo} 
+                                                              onClick={this.delete}/>)
             return {
                 todos: updatedTodos,
                 currentToDo: '',
@@ -43,8 +46,8 @@ class TodoForm extends React.Component {
             <div className='todo-form'>
                 <form onSubmit={this.addItem}>
                     <h3>- Task -</h3>
-                    <input type='text' value={this.state.currentToDo} placeholder='Enter New Task' onChange={this.handleChange}/>
-                    <button type='submit'>Add Task</button>
+                    <input id='todo-input' type='text' value={this.state.currentToDo} placeholder='Enter New Task' onChange={this.handleChange}/>
+                    <button className='btn' type='submit'>+</button>
                 </form>
                 <div className='todo-list'>
                     {this.state.todos}

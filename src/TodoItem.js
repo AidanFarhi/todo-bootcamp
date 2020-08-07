@@ -35,10 +35,10 @@ class TodoItem extends React.Component{
                         value={this.state.updatedText} 
                         placeholder='Edit Task' 
                         onChange={this.handleChange}/>
-                        <button type='submit'>Edit</button>
+                        <button className='btn' type='submit'>...</button>
+                        <button id='delete-btn' className='btn' onClick={() => this.state.onClick(this.state.id)}>x</button>
                     </form>
                 </div>
-                <button onClick={() => this.state.onClick(this.state.id)}>Delete</button>
             </div>
         )
     }
