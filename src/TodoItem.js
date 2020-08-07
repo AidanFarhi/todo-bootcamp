@@ -28,7 +28,7 @@ class TodoItem extends React.Component{
     render() {
         return (
             <div className='td-item' id={this.state.id}>
-                <p>{this.state.text}</p>
+                <h2>- {this.state.text}</h2>
                 <div className='update-form'>
                     <form onSubmit={this.changeText}>
                     <input type='text' 
@@ -36,7 +36,8 @@ class TodoItem extends React.Component{
                         placeholder='Edit Task' 
                         onChange={this.handleChange}/>
                         <button className='btn' type='submit'>...</button>
-                        <button id='delete-btn' className='btn' onClick={() => this.state.onClick(this.state.id)}>x</button>
+                        <button id='delete-btn' className='btn' 
+                                onClick={() => this.state.onClick(this.state.id)}>x</button>
                     </form>
                 </div>
             </div>
