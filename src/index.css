@@ -16,57 +16,16 @@ input {
   width: 150px;
 }
 
-.btn {
-	box-shadow: 0px 4px 0px 0px #3dc21b;
-	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
-	background-color:#44c767;
-	border-radius:28px;
-	border:1px solid #18ab29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	font-weight:bold;
-	padding:8px 12px;
-	text-decoration:none;
-	text-shadow:0px 1px 23px #2f6627;
-}
-
-.btn:hover {
-	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-	background-color:#5cbf2a;
-}
-
-.btn:active {
-	position:relative;
-	top:1px;
-}
-
-#delete-btn {
-  box-shadow: 0px 4px 0px 0px #8a2a21;
-	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
-	background-color:#c62d1f;
-	border-radius:28px;
-  border:1px solid #d02718;
-  text-shadow:0px 1px 23px #810e05;
-}
-
-#delete-btn:hover {
-	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-	background-color:#f24437;
-}
-
 button:focus {
   outline: 0;
 }
 
 .td-item {
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   font-size: larger;
   font-weight: bold;
-  border-radius: 3px;
   margin-top: 1px;
+  border-bottom: 1px solid whitesmoke;
 }
 
 .td-text{
@@ -110,7 +69,7 @@ button:focus {
   border-top: 1px solid lightgrey;
   font-size: x-large;
   font: bold;
-  color: grey;
+  color: black;
 }
 
 #item-text-and-button {
@@ -126,4 +85,41 @@ button:focus {
 
 .todo-list {
   margin-top: 10px;
+}
+
+.edit-delete-btns {
+  position: absolute;
+  margin-left: 340px;
+  /* padding-left: 345px; */
+  background-color: white;
+  z-index: 9;
+  width: 55px;
+}
+
+.btn {
+  font-family: monospace;
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+.btn:hover {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+.btn:active {
+  outline: none;
+  border: none;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+#delete-btn {
+  color: red
 }
