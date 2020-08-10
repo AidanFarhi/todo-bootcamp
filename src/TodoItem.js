@@ -53,7 +53,11 @@ class TodoItem extends React.Component{
             <div className='td-item' id={this.state.id}>
                 <div id='item-text-and-button'>
                     <h3 className='td-text'>{this.state.text}</h3>
-                    <button id='dots' onClick={this.dotsClicked}><span id='button-dots'>...</span></button>
+                    <button 
+                        id='dots' 
+                        onClick={this.dotsClicked}>
+                        <span id='button-dots'>...</span>
+                    </button>
                 </div>
                 {/* This is where the edit and delete button will go */
                 this.state.dotsClicked ? 
@@ -65,7 +69,12 @@ class TodoItem extends React.Component{
                             delete
                         </button>
                         <br/>
-                        <button id='edit-btn' className='btn' onClick={this.edit}>edit</button>
+                        <button 
+                            id='edit-btn' 
+                            className='btn' 
+                            onClick={this.edit}>
+                            edit
+                        </button>
                     </div> 
                 : null}
                 {this.state.editClicked ?
@@ -77,7 +86,12 @@ class TodoItem extends React.Component{
                                 placeholder='Edit Task' 
                                 onChange={this.handleChange}
                             />
-                            <button id='save-btn' className='btn' type='submit'>save</button>
+                            <button 
+                                id='save-btn' 
+                                className='btn' 
+                                type='submit'>
+                                save
+                            </button>
                         </form>
                     </div>
                 : null}
