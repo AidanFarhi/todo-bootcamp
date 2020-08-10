@@ -75,6 +75,7 @@ button:focus {
 }
 
 #dots {
+  transform: rotate(-90deg);
   font-weight: bold;
   background: transparent;
   box-shadow: 0px 0px 0px transparent;
@@ -99,6 +100,8 @@ button:focus {
 }
 
 #button-dots {
+  padding-top: 5px;
+  border-top: 1px solid lightgrey;
   font-size: x-large;
   font: bold;
   color: grey;

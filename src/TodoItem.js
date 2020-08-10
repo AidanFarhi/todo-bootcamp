@@ -46,7 +46,6 @@ class TodoItem extends React.Component{
                     <h2>- {this.state.text}</h2>
                     <button id='dots' onClick={this.edit}><span id='button-dots'>...</span></button>
                 </div>
-                
                 {this.state.editClicked ?
                     <div className='update-form'>
                         <form onSubmit={this.changeText}>   
@@ -54,13 +53,12 @@ class TodoItem extends React.Component{
                             value={this.state.updatedText} 
                             placeholder='Edit Task' 
                             onChange={this.handleChange}/>
-                            <button className='btn' type='submit'>save change</button>
+                            <button className='btn' type='submit'>save</button>
                             <button id='delete-btn' className='btn' 
-                                    onClick={() => this.state.onClick(this.state.id)}>x</button>
+                                    onClick={() => this.state.onClick(this.state.id)}>delete</button>
                         </form>
                     </div>
                 : null}
-                
             </div>
         )
     }
