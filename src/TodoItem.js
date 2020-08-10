@@ -58,21 +58,26 @@ class TodoItem extends React.Component{
                 {/* This is where the edit and delete button will go */
                 this.state.dotsClicked ? 
                     <div className='edit-delete-btns'>
-                        <button id='delete-btn' className='btn' onClick={() => this.state.onClick(this.state.id)}>delete</button>
+                        <button 
+                            id='delete-btn' 
+                            className='btn' 
+                            onClick={() => this.state.onClick(this.state.id)}>
+                            delete
+                        </button>
                         <br/>
                         <button id='edit-btn' className='btn' onClick={this.edit}>edit</button>
                     </div> 
                 : null}
                 {this.state.editClicked ?
                     <div className='update-form'>
-                        <span className='form-top'></span>
-                        <form onSubmit={this.changeText}>   
-                        <input type='text' 
-                            value={this.state.updatedText} 
-                            placeholder='Edit Task' 
-                            onChange={this.handleChange}/>
-                            <button className='btn' type='submit'>save</button>
-                            
+                            <form onSubmit={this.changeText}>   
+                            <input 
+                                type='text' 
+                                value={this.state.updatedText} 
+                                placeholder='Edit Task' 
+                                onChange={this.handleChange}
+                            />
+                            <button id='save-btn' className='btn' type='submit'>save</button>
                         </form>
                     </div>
                 : null}
