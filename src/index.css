@@ -70,7 +70,7 @@ button:focus {
 }
 
 .td-text{
-  max-width: 200px;
+  width: 200px;
   overflow-wrap: break-word;
 }
 
@@ -80,6 +80,7 @@ button:focus {
 }
 
 #dots {
+  padding-top: 10%;
   transform: rotate(-90deg);
   font-weight: bold;
   background: transparent;

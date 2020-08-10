@@ -10,6 +10,7 @@ class TodoItem extends React.Component{
             updatedText: '',
             editing: false,
             editClicked: false,
+            dotsClicked: false
         }
     }
 
@@ -38,6 +39,10 @@ class TodoItem extends React.Component{
             })
         }
     }
+
+    // dotsClicked = () => {
+
+    // }
     
     render() {
         return (
