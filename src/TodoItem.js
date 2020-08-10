@@ -43,11 +43,12 @@ class TodoItem extends React.Component{
         return (
             <div className='td-item' id={this.state.id}>
                 <div id='item-text-and-button'>
-                    <h2>- {this.state.text}</h2>
+                    <h3 className='td-text'>{this.state.text}</h3>
                     <button id='dots' onClick={this.edit}><span id='button-dots'>...</span></button>
                 </div>
                 {this.state.editClicked ?
                     <div className='update-form'>
+                        <span className='form-top'></span>
                         <form onSubmit={this.changeText}>   
                         <input type='text' 
                             value={this.state.updatedText} 

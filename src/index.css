@@ -1,5 +1,5 @@
 body {
-  background-image: url('background.jpg');
+  background-image: url('background2.jpeg');
   background-attachment: fixed;
   background-size: contain;
   background-size: 100%;
@@ -67,6 +67,11 @@ button:focus {
   font-weight: bold;
   border-radius: 3px;
   margin-top: 1px;
+}
+
+.td-text{
+  max-width: 200px;
+  overflow-wrap: break-word;
 }
 
 .todo-form {
